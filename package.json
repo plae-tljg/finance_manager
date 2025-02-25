@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "serve docs",
+    "clean": "rimraf docs dist",
+    "build": "npm run clean && vite build && move dist docs"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
+    "@emotion/react": "^11.x.x",
+    "@emotion/styled": "^11.x.x",
     "@mui/icons-material": "^6.4.5",
-    "@mui/material": "^6.4.5",
+    "@mui/material": "^5.x.x",
     "chart.js": "^4.4.8",
     "dexie": "^4.0.11",
     "dexie-react-hooks": "^1.1.7",
@@ -32,6 +34,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
+    "rimraf": "^5.0.10",
     "vite": "^6.2.0"
   }
 }

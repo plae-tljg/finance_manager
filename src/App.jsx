@@ -1,13 +1,8 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { db } from './db/db'
 import './App.css'
 import FinanceManager from './components/FinanceManager'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   // 添加导出数据库功能
   const exportDB = async () => {
     try {

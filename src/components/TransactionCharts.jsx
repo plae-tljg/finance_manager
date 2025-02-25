@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
+import PropTypes from 'prop-types'
 
 function TransactionCharts({ transactions }) {
   const monthlyChartRef = useRef(null)
   const categoryChartRef = useRef(null)
-  let monthlyChart = null
-  let categoryChart = null
+  
+  const monthlyChartInstance = useRef(null)
+  const categoryChartInstance = useRef(null)
 
   useEffect(() => {
     const prepareMonthlyData = () => {
@@ -53,8 +55,8 @@ function TransactionCharts({ transactions }) {
 
     // 月度收支趋势图
     const monthlyData = prepareMonthlyData()
-    if (monthlyChart) monthlyChart.destroy()
-    monthlyChart = new Chart(monthlyChartRef.current, {
+    if (monthlyChartInstance.current) monthlyChartInstance.current.destroy()
+    monthlyChartInstance.current = new Chart(monthlyChartRef.current, {
       type: 'line',
       data: {
         labels: monthlyData.map(d => d.month),
@@ -86,8 +88,8 @@ function TransactionCharts({ transactions }) {
 
     // 支出分类饼图
     const categoryData = prepareCategoryData()
-    if (categoryChart) categoryChart.destroy()
-    categoryChart = new Chart(categoryChartRef.current, {
+    if (categoryChartInstance.current) categoryChartInstance.current.destroy()
+    categoryChartInstance.current = new Chart(categoryChartRef.current, {
       type: 'pie',
       data: {
         labels: categoryData.labels,
@@ -115,8 +117,8 @@ function TransactionCharts({ transactions }) {
     })
 
     return () => {
-      if (monthlyChart) monthlyChart.destroy()
-      if (categoryChart) categoryChart.destroy()
+      if (monthlyChartInstance.current) monthlyChartInstance.current.destroy()
+      if (categoryChartInstance.current) categoryChartInstance.current.destroy()
     }
   }, [transactions])
 
@@ -130,6 +132,17 @@ function TransactionCharts({ transactions }) {
       </div>
     </div>
   )
+}
+
+TransactionCharts.propTypes = {
+  transactions: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      type: PropTypes.oneOf(['income', 'expense']).isRequired,
+      amount: PropTypes.number.isRequired,
+      category: PropTypes.string.isRequired
+    })
+  ).isRequired
 }
 
 export default TransactionCharts 

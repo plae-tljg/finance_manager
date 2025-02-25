@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { db } from '../db/db'
+import PropTypes from 'prop-types'
 
 function CategoryManager({ categories, onCategoriesUpdate }) {
   const [newCategory, setNewCategory] = useState({ name: '', type: 'expense' })
@@ -78,6 +79,17 @@ function CategoryManager({ categories, onCategoriesUpdate }) {
       </div>
     </div>
   )
+}
+
+CategoryManager.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      type: PropTypes.oneOf(['expense', 'income']).isRequired
+    })
+  ).isRequired,
+  onCategoriesUpdate: PropTypes.func.isRequired
 }
 
 export default CategoryManager 
