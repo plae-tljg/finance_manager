@@ -1,0 +1,170 @@
+.finance-manager {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.transaction-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.transaction-form input,
+.transaction-form select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.transaction-form button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.transaction-form button:hover {
+  background-color: #45a049;
+}
+
+.transactions-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transactions-list th,
+.transactions-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.transactions-list th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.transactions-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+.edit-form {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+
+.edit-form input,
+.edit-form select {
+  padding: 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-form button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.edit-form button[type="button"] {
+  background-color: #f44336;
+  color: white;
+}
+
+.transaction-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.stats-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats-card h4 {
+  margin: 0 0 10px 0;
+  color: #666;
+}
+
+.stats-card p {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.income {
+  color: #4CAF50;
+}
+
+.expense {
+  color: #f44336;
+}
+
+.management-sections {
+  margin-top: 30px;
+}
+
+.category-manager {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.category-form {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.categories-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.chart-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .transaction-charts {
+    grid-template-columns: 1fr;
+  }
+} 
