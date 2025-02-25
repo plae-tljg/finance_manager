@@ -1,8 +1,14 @@
-# React + Vite
+# Project for finance management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+very simply and easy to use, can export data as json and import back for latter use.
 
-Currently, two official plugins are available:
+# What to do next:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. add detail visualization
+    1.1. add a chart to show the income and expense distribution
+    1.2. add a chart to show the income and expense trend
+    1.3. add a chart to show the income and expense by category
+    1.4. add a chart to show the income and expense by month
+    1.5. add a chart to show the income and expense by day
+2. add more features to make it more useful
+    2.1. add in more sp/finance computation to make it more useful
