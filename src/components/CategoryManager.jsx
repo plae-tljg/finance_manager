@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { db } from '../db/db'
 import PropTypes from 'prop-types'
+import '../styles/CategoryManager.css'
 
 function CategoryManager({ categories, onCategoriesUpdate }) {
   const [newCategory, setNewCategory] = useState({ name: '', type: 'expense' })
@@ -31,10 +32,12 @@ function CategoryManager({ categories, onCategoriesUpdate }) {
 
   return (
     <div className="category-manager">
-      <h3>分类管理</h3>
-      <button onClick={() => setIsAdding(!isAdding)}>
-        {isAdding ? '取消' : '添加新分类'}
-      </button>
+      <div className="category-header">
+        <h3>分类管理</h3>
+        <button onClick={() => setIsAdding(!isAdding)}>
+          {isAdding ? '取消' : '添加新分类'}
+        </button>
+      </div>
 
       {isAdding && (
         <form onSubmit={handleSubmit} className="category-form">
@@ -56,26 +59,36 @@ function CategoryManager({ categories, onCategoriesUpdate }) {
         </form>
       )}
 
-      <div className="categories-list">
-        <h4>支出分类</h4>
-        <ul>
-          {categories.filter(c => c.type === 'expense').map(category => (
-            <li key={category.id}>
-              {category.name}
-              <button onClick={() => handleDelete(category.id)}>删除</button>
-            </li>
-          ))}
-        </ul>
+      <div className="categories-container">
+        <div className="category-box">
+          <div className="category-title">支出分类</div>
+          <div className="category-content">
+            {categories
+              .filter(c => c.type === 'expense')
+              .map(category => (
+                <div key={category.id} className="category-item">
+                  <span>{category.name}</span>
+                  <button onClick={() => handleDelete(category.id)}>删除</button>
+                </div>
+              ))
+            }
+          </div>
+        </div>
 
-        <h4>收入分类</h4>
-        <ul>
-          {categories.filter(c => c.type === 'income').map(category => (
-            <li key={category.id}>
-              {category.name}
-              <button onClick={() => handleDelete(category.id)}>删除</button>
-            </li>
-          ))}
-        </ul>
+        <div className="category-box">
+          <div className="category-title">收入分类</div>
+          <div className="category-content">
+            {categories
+              .filter(c => c.type === 'income')
+              .map(category => (
+                <div key={category.id} className="category-item">
+                  <span>{category.name}</span>
+                  <button onClick={() => handleDelete(category.id)}>删除</button>
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
   )

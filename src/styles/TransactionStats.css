@@ -1,0 +1,52 @@
+.transaction-stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.stats-card {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stats-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.stats-value {
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.income { color: #4caf50; }
+.expense { color: #f44336; }
+
+@media (max-width: 1200px) {
+  .transaction-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .transaction-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .transaction-stats {
+    grid-template-columns: 1fr;
+  }
+} 

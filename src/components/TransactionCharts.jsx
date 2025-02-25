@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
 import PropTypes from 'prop-types'
+import '../styles/TransactionCharts.css'
 
 function TransactionCharts({ transactions }) {
   const monthlyChartRef = useRef(null)

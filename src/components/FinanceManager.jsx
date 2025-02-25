@@ -4,6 +4,7 @@ import TransactionStats from './TransactionStats'
 import CategoryManager from './CategoryManager'
 import TransactionCharts from './TransactionCharts'
 import { Tabs, Tab, Box } from '@mui/material'
+import '../styles/FinanceManager.css'
 
 function FinanceManager() {
   const [transactions, setTransactions] = useState([])

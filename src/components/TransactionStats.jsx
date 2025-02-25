@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import PropTypes from 'prop-types'
+import '../styles/TransactionStats.css'
 
 function TransactionStats({ transactions }) {
   const stats = useMemo(() => {
